@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="Atlas"
+  description="Browse every map published on The Learning Map of India."
+>
+  <section class="section empty-state">
+    <div class="container narrow">
+      <p class="eyebrow">The atlas</p>
+      <h1>No maps yet — the first one is being surveyed</h1>
+      <p>
+        This is where every published map will live, organized by topic:
+        access, outcomes, spending, and higher education. The first map is
+        on its way. Check back soon, or
+        <a href={`${base}/about`}>read about the project</a> in the meantime.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .empty-state {
+    padding: 96px 0;
+  }
+</style>

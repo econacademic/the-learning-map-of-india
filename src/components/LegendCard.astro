@@ -1,0 +1,59 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  description: string;
+  color?: string;
+}
+
+const { index, title, description, color = 'var(--marigold)' } = Astro.props;
+---
+
+<div class="legend-card">
+  <div class="legend-marker" style={`--marker-color: ${color}`}>
+    <span class="legend-index">{index}</span>
+  </div>
+  <div class="legend-text">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>
+
+<style>
+  .legend-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-top: 1px dashed rgba(38, 36, 31, 0.25);
+  }
+
+  .legend-card:first-child {
+    border-top: none;
+  }
+
+  .legend-marker {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--marker-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .legend-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .legend-text p {
+    margin: 0;
+    color: var(--ink);
+    opacity: 0.85;
+  }
+</style>

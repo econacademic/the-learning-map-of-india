@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegendCard from '../components/LegendCard.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Home">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">An atlas of India's classrooms</p>
+      <h1>India's education, <span class="highlight">charted.</span></h1>
+      <p class="hero-sub">
+        One map at a time, this project turns India's real education data —
+        literacy, learning outcomes, school access, spending — into pictures
+        anyone can read, from a class 10 student to a policy researcher.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={`${base}/atlas`}>Explore the atlas</a>
+        <a class="btn" href="#how-it-works">How this works</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section">
+    <div class="container narrow">
+      <p class="eyebrow">How this works</p>
+      <h2>From government spreadsheet to a map you can trust</h2>
+      <LegendCard
+        index="01"
+        title="Survey the data"
+        description="Every map starts with a real, cited dataset — UDISE+, ASER, AISHE, or the Census — the same numbers policymakers use."
+        color="var(--notebook-blue)"
+      />
+      <LegendCard
+        index="02"
+        title="Draw one map"
+        description="Each dataset becomes a single, focused map. No dashboards to decode — just one clear picture at a time."
+        color="var(--marigold)"
+      />
+      <LegendCard
+        index="03"
+        title="Cite and share"
+        description="Every map ships with its full source, so a teacher, journalist, or researcher can trust and reuse it."
+        color="var(--red-pen)"
+      />
+    </div>
+  </section>
+
+  <section class="section atlas-teaser">
+    <div class="container narrow">
+      <p class="eyebrow">The atlas</p>
+      <h2>The first map is being surveyed</h2>
+      <p>
+        We're cleaning our first dataset right now. The atlas fills in one
+        map at a time — check back soon, or
+        <a href={`${base}/about`}>read more about the project</a> while you wait.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 96px 0 72px;
+    background: var(--blackboard);
+    color: var(--chalk);
+    background-image: linear-gradient(
+        rgba(244, 241, 228, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(244, 241, 228, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero .eyebrow {
+    color: var(--marigold);
+  }
+
+  .hero h1 {
+    color: var(--chalk);
+  }
+
+  .highlight {
+    color: var(--marigold);
+  }
+
+  .hero-sub {
+    max-width: 560px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero .btn {
+    border-color: var(--chalk);
+    color: var(--chalk);
+  }
+
+  .hero .btn-primary {
+    border-color: var(--marigold);
+    color: var(--ink);
+  }
+
+  .atlas-teaser {
+    background: rgba(53, 87, 125, 0.08);
+    border-top: 1px dashed rgba(38, 36, 31, 0.2);
+    border-bottom: 1px dashed rgba(38, 36, 31, 0.2);
+  }
+</style>

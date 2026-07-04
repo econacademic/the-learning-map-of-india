@@ -1,0 +1,85 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const navItems = [
+  { href: `${base}/`, label: 'Home' },
+  { href: `${base}/atlas`, label: 'Atlas' },
+  { href: `${base}/about`, label: 'About' },
+  { href: `${base}/sources`, label: 'Sources' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={`${base}/`} class="brand">
+      <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="#f4f1e4" stroke-width="1.5"></circle>
+        <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#f4f1e4"></path>
+        <path d="M6 20 L20 17 L34 20 L20 23 Z" fill="#e8a93b"></path>
+      </svg>
+      <span>The Learning Map <em>of India</em></span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--blackboard);
+    color: var(--chalk);
+    padding: 18px 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--chalk);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .brand em {
+    color: var(--marigold);
+    font-style: normal;
+  }
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--chalk);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  nav a:hover {
+    color: var(--marigold);
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegendCard from '../components/LegendCard.astro';
+---
+
+<BaseLayout
+  title="Sources & methodology"
+  description="Where the data behind The Learning Map of India comes from."
+>
+  <section class="section">
+    <div class="container narrow">
+      <p class="eyebrow">Sources &amp; methodology</p>
+      <h1>Where the numbers come from</h1>
+      <p>
+        Every map on this site is built from public, citable data. As maps
+        are published, this page will list the exact file and download date
+        used for each one. For now, here are the primary sources this
+        project draws from:
+      </p>
+    </div>
+  </section>
+
+  <section class="section sources-list">
+    <div class="container narrow">
+      <LegendCard
+        index="UDISE+"
+        title="School infrastructure & enrollment"
+        description="Ministry of Education. District-level data on school facilities, teachers, and enrollment, updated annually."
+        color="var(--notebook-blue)"
+      />
+      <LegendCard
+        index="ASER"
+        title="Learning outcomes"
+        description="ASER Centre / Pratham. India's largest citizen-led household survey of children's reading and arithmetic levels."
+        color="var(--marigold)"
+      />
+      <LegendCard
+        index="AISHE"
+        title="Higher education"
+        description="Ministry of Education. University and college enrollment, gross enrollment ratio by state and gender."
+        color="var(--red-pen)"
+      />
+      <LegendCard
+        index="Census / NSSO"
+        title="Literacy & demographics"
+        description="Government of India. Long-running literacy and population statistics used as a baseline for many maps."
+        color="var(--notebook-blue)"
+      />
+      <LegendCard
+        index="NITI Aayog"
+        title="SDG India Index"
+        description="Composite state-level scores on education-related sustainable development goals."
+        color="var(--marigold)"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>A note on boundaries</h2>
+      <p>
+        Map boundaries are drawn from openly licensed geographic files, not
+        survey-grade cartography. Where a boundary is disputed or has
+        changed recently, the relevant map will note it directly.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
